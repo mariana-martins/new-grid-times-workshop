@@ -47,6 +47,8 @@ const HeaderWrapper = styled(MaxWidthWrapper)`
     align-items: baseline;
     padding-left: 32px;
     padding-right: 32px;
+    margin-bottom: 80px;
+    margin-top: 16px;
   }
 `;
 
@@ -106,6 +108,7 @@ const SubscriberLink = styled.a`
   color: var(--color-gray-900);
   font-weight: var(--font-weight-normal);
   font-size: 0.875rem;
+  margin-top: 8px;
 `;
 
 const MainHeader = styled(MaxWidthWrapper)`
@@ -116,6 +119,7 @@ const MainHeader = styled(MaxWidthWrapper)`
 
   @media ${QUERIES.laptopAndUp} {
     flex: 3;
+    margin: 0;
   }
 `;
 
