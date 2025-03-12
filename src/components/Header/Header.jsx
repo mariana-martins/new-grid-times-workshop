@@ -10,7 +10,7 @@ import Button from '../Button';
 
 const Header = () => {
   return (
-    <header>
+    <HeaderWrapper as="header">
       <SuperHeader>
         <Row>
           <ActionGroup>
@@ -21,7 +21,7 @@ const Header = () => {
               <Menu size={24} />
             </button>
           </ActionGroup>
-          <ActionGroup>
+          <ActionGroup className="login">
             <button>
               <User size={24} />
             </button>
@@ -31,19 +31,43 @@ const Header = () => {
       <MainHeader>
         <Logo />
       </MainHeader>
-    </header>
+      <SubscriptionGroup>
+        <Button>Subscribe</Button>
+        <SubscriberLink href="#">Already a subscriber?</SubscriberLink>
+      </SubscriptionGroup>
+    </HeaderWrapper>
   );
 };
+
+const HeaderWrapper = styled(MaxWidthWrapper)`
+  padding: 0;
+
+  @media ${QUERIES.laptopAndUp} {
+    display: flex;
+    align-items: baseline;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+`;
 
 const SuperHeader = styled.div`
   padding: 16px 0;
   background: var(--color-gray-900);
-  color: white;
+  color: var(--color-white);
+
+  @media ${QUERIES.laptopAndUp} {
+    color: var(--color-offblack);
+    background: var(--color-gray-100);
+  }
 `;
 
 const Row = styled(MaxWidthWrapper)`
   display: flex;
   justify-content: space-between;
+
+  @media ${QUERIES.laptopAndUp} {
+    padding: 0;
+  }
 `;
 
 const ActionGroup = styled.div`
@@ -57,14 +81,42 @@ const ActionGroup = styled.div`
   svg {
     display: block;
   }
+
+  @media ${QUERIES.laptopAndUp} {
+    padding: 0;
+    &.login {
+      display: none;
+    }
+  }
+`;
+
+const SubscriptionGroup = styled(MaxWidthWrapper)`
+  display: none;
+  @media ${QUERIES.laptopAndUp} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+`;
+
+const SubscriberLink = styled.a`
+  text-decoration: underline;
+  font-family: var(--font-family-serif);
+  color: var(--color-gray-900);
+  font-weight: var(--font-weight-normal);
+  font-size: 0.875rem;
 `;
 
 const MainHeader = styled(MaxWidthWrapper)`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 32px;
-  margin-bottom: 48px;
+  margin: 32px 0 48px;
+
+  @media ${QUERIES.laptopAndUp} {
+    flex: 3;
+  }
 `;
 
 export default Header;
