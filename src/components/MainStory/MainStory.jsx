@@ -1,14 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const MainStory = ({
-  id,
-  title,
-  image,
-  location,
-  abstract,
-  ...delegated
-}) => {
+import { QUERIES } from '../../constants';
+
+const MainStory = ({ id, title, image, location, abstract, ...delegated }) => {
   return (
     <Wrapper {...delegated}>
       <a href={`/story/${id}`}>
@@ -41,9 +36,22 @@ const Heading = styled.h2`
 `;
 
 const Abstract = styled.p`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8;
+  overflow: hidden;
+  overflow-wrap: break-word;
   font-size: 1rem;
   margin-bottom: 1em;
   white-space: pre-wrap;
+
+  @media ${QUERIES.tabletOnly} {
+    -webkit-line-clamp: 16;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    hyphens: auto;
+  }
 `;
 
 const Location = styled.span`
