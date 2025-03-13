@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-  MAIN_STORY,
-  OPINION_STORIES,
-  SECONDARY_STORIES,
-} from '../../data';
+import { MAIN_STORY, OPINION_STORIES, SECONDARY_STORIES } from '../../data';
 
 import SectionTitle from '../SectionTitle';
 import MainStory from '../MainStory';
@@ -23,7 +19,10 @@ const MainStoryGrid = () => {
       <SecondaryStorySection>
         <StoryList>
           {SECONDARY_STORIES.map((story, index) => (
-            <SecondaryStory key={story.id} {...story} />
+            <>
+              <SecondaryStory key={story.id} {...story} />
+              <SectionLine></SectionLine>
+            </>
           ))}
         </StoryList>
       </SecondaryStorySection>
@@ -32,7 +31,10 @@ const MainStoryGrid = () => {
         <SectionTitle>Opinion</SectionTitle>
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
+            <>
+              <OpinionStory key={story.id} {...story} />
+              <SectionLine></SectionLine>
+            </>
           ))}
         </StoryList>
       </OpinionSection>
@@ -43,6 +45,11 @@ const MainStoryGrid = () => {
     </Wrapper>
   );
 };
+
+const SectionLine = styled.span`
+  border-bottom: 1px solid var(--color-gray-300);
+  width: 100%;
+`;
 
 const Wrapper = styled.div`
   display: grid;
@@ -66,6 +73,11 @@ const SecondaryStorySection = styled.section`
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 16px;
+
+  & > span:last-of-type {
+    display: none;
+  }
 `;
 
 const OpinionSection = styled.section`

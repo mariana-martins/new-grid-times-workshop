@@ -50,6 +50,7 @@ const Abstract = styled.p`
   grid-area: abstract;
   font-size: 1rem;
   white-space: pre-wrap;
+  height: fit-content;
 `;
 
 export default SecondaryStory;
