@@ -45,20 +45,39 @@ const MainStoryGrid = () => {
   );
 };
 
-const SectionLine = styled.span`
-  border-bottom: 1px solid var(--color-gray-300);
-  width: 100%;
-`;
-
 const Wrapper = styled.div`
   display: grid;
+  grid-template-columns: 1fr;
   grid-template-areas:
     'main-story'
     'secondary-stories'
     'opinion-stories'
     'advertisement';
-  gap: 48px;
+  gap: 16px;
   margin-bottom: 48px;
+  align-content: end;
+
+  @media ${QUERIES.tabletAndUp} {
+    grid-template-columns: minmax(min(300px, 100%), 2fr) minmax(240px, 1fr);
+    grid-template-areas:
+      'main-story secondary-stories'
+      'main-story secondary-stories'
+      'main-story secondary-stories'
+      'advertisement advertisement'
+      'opinion-stories opinion-stories';
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    grid-template-columns: minmax(min(400px, 50%), 3fr) minmax(360px, 2fr) minmax(
+        300px,
+        1fr
+      );
+    grid-template-areas:
+      'main-story secondary-stories opinion-stories'
+      'main-story secondary-stories opinion-stories'
+      'main-story secondary-stories opinion-stories'
+      'main-story advertisement advertisement';
+  }
 `;
 
 const MainStorySection = styled.section`
