@@ -46,6 +46,7 @@ const ArticleTitle = styled.h3`
   font-size: 1.125rem;
   font-weight: var(--font-weight-bold);
   line-height: 1.3;
+  max-width: 208px;
 `;
 
 export default OpinionStory;
