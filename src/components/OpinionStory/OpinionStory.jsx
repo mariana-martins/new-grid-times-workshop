@@ -29,8 +29,10 @@ const Avatar = styled.img`
   object-fit: cover;
   margin-left: 16px;
   float: right;
+
   @media ${QUERIES.tabletOnly} {
     margin-left: revert;
+    margin-bottom: 8px;
     float: revert;
   }
 `;
@@ -40,13 +42,18 @@ const AuthorName = styled.p`
   font-weight: var(--font-weight-medium);
   color: var(--color-gray-700);
   margin-bottom: 4px;
+  overflow-wrap: break-word;
 `;
 
 const ArticleTitle = styled.h3`
   font-size: 1.125rem;
   font-weight: var(--font-weight-bold);
   line-height: 1.3;
-  max-width: 208px;
+  overflow-wrap: break-word;
+
+  @media ${QUERIES.desktopAndUp} {
+    max-width: 208px;
+  }
 `;
 
 export default OpinionStory;
