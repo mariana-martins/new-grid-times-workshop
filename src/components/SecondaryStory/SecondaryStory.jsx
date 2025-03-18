@@ -23,13 +23,21 @@ const Wrapper = styled.article`
   grid-template-columns: 120px 1fr;
   color: var(--color-gray-900);
 
-  @media ${QUERIES.tabletOnly} {
+  @media ${QUERIES.tabletAndUp} {
     grid-template-areas:
       'image'
       'heading'
       'abstract';
     grid-template-columns: minmax(292px, 1fr);
     gap: 16px 0;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    grid-template-areas:
+      'image heading'
+      'image abstract';
+    gap: 4px 16px;
+    grid-template-columns: 120px 1fr;
   }
 `;
 

@@ -69,10 +69,7 @@ const Wrapper = styled.div`
   }
 
   @media ${QUERIES.desktopAndUp} {
-    grid-template-columns: minmax(min(400px, 50%), 3fr) minmax(360px, 2fr) minmax(
-        300px,
-        1fr
-      );
+    grid-template-columns: 3fr 2fr minmax(256px, 1fr);
     grid-template-areas:
       'main-story secondary-stories opinion-stories'
       'main-story secondary-stories opinion-stories'
@@ -117,6 +114,7 @@ const VerticalStoryWrapper = styled.div`
 const StoryList = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   @media ${QUERIES.tabletOnly} {
     &.opinion-stories {
