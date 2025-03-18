@@ -28,7 +28,7 @@ const Wrapper = styled.article`
       'image'
       'heading'
       'abstract';
-    grid-template-columns: minmax(292px, 1fr);
+    grid-template-columns: 1fr;
     gap: 16px 0;
   }
 
